@@ -6,12 +6,12 @@
 #include <iostream>
 #include <regex>
 
-void main_menu();
-int get_user_input();
-void select_menu_item(int input);
-void print_main_menu();
-void go_back_to_main_menu();
-bool is_integer(std::string num);
+void Aley_main_menu();
+int Aley_get_user_input();
+void Aley_select_menu_item(int input);
+void print_Aley_main_menu();
+void go_back_to_Aley_main_menu();
+bool Aley_is_integer(std::string num);
 void menu_op_parallel_resistor();
 void menu_op_series_resistor();
 void menu_op_rlc();
@@ -22,17 +22,17 @@ double b = 0;
 
 
 int main(int argc, char const *argv[]) {
-  main_menu();
+  Aley_main_menu();
   return 0;
 }
 
-void main_menu() {
-  print_main_menu();
-  int input = get_user_input();
-  select_menu_item(input);
+void Aley_main_menu() {
+  print_Aley_main_menu();
+  int input = Aley_get_user_input();
+  Aley_select_menu_item(input);
 }
 
-int get_user_input() {
+int Aley_get_user_input() {
   int input;
   std::string input_string;
   bool valid_input = false;
@@ -41,7 +41,7 @@ int get_user_input() {
   do {
     std::cout << "\nChoose type of connection: ";
     std::cin >> input_string;
-    valid_input = is_integer(input_string);
+    valid_input = Aley_is_integer(input_string);
     // if input is not an integer, print an error message
     if (valid_input == false) {
       std::cout << "Enter an integer!\n";
@@ -59,7 +59,7 @@ int get_user_input() {
   return input;
 }
 
-void select_menu_item(int input) {
+void Aley_select_menu_item(int input) {
   switch (input) {
   case 1:
     menu_op_parallel_resistor();
@@ -82,7 +82,7 @@ void select_menu_item(int input) {
   }
 }
 
-void print_main_menu() {
+void print_Aley_main_menu() {
   std::cout << "\n-------Aley's Main menu -----------\n";
   std::cout << "|\t\t\t\t\t\t\t|\n";
   std::cout << "|\t1. Parallel Resistors\t|\n";
@@ -100,11 +100,11 @@ void go_back_to_main() {
     std::cout << "\nEnter 'b' or 'B' to go back to the main menu: ";
     std::cin >> input;
   } while (input != "b" && input != "B");
-  main_menu();
+  Aley_main_menu();
 }
 
 // https://codereview.stackexchange.com/questions/162569/checking-if-each-char-in-a-string-is-a-decimal-digit
-bool is_integer(std::string num) {
+bool Aley_is_integer(std::string num) {
   return std::regex_match(num, std::regex("[+-]?[0-9]+"));
 }
 
